@@ -4,17 +4,8 @@ import { T, Currency, Num, DateTime, Branch } from "gt-next";
 import { useGT } from "gt-next/client";
 import { LocaleSelector } from "gt-next";
 import { useState } from "react";
-
-type Vehicle = {
-  make: string;
-  model: string;
-  year: number;
-  price: number;
-  mileage: number;
-  type: "sedan" | "suv" | "truck" | "coupe" | "convertible";
-  status: "available" | "reserved" | "sold";
-  listedAt: Date;
-};
+import Link from "next/link";
+import { vehicles, Vehicle } from "@/data/vehicles";
 
 function StatusBadge({ status }: { status: "available" | "reserved" | "sold" }) {
   const colors: Record<string, string> = {
@@ -49,7 +40,7 @@ function StatusBadge({ status }: { status: "available" | "reserved" | "sold" }) 
 
 function VehicleCard({ vehicle }: { vehicle: Vehicle }) {
   return (
-    <div className="py-5 border-b border-neutral-800 last:border-b-0">
+    <Link href={`/vehicle/${vehicle.slug}`} className="block py-5 border-b border-neutral-800 last:border-b-0 hover:bg-neutral-900/50 -mx-4 px-4 rounded transition-colors">
       <div className="flex justify-between items-start gap-4">
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2 flex-wrap">
@@ -71,26 +62,17 @@ function VehicleCard({ vehicle }: { vehicle: Vehicle }) {
           <Currency currency="USD">{vehicle.price}</Currency>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
+
+type SortOption = "price-asc" | "price-desc" | "mileage-asc" | "year-desc";
 
 export default function Home() {
   const t = useGT();
   const [filter, setFilter] = useState<string>("all");
-
-  const vehicles: Vehicle[] = [
-    { make: "Toyota", model: "Camry", year: 2024, price: 28500, mileage: 12400, type: "sedan", status: "available", listedAt: new Date("2026-01-15") },
-    { make: "Ford", model: "F-150", year: 2023, price: 45900, mileage: 31200, type: "truck", status: "available", listedAt: new Date("2026-01-20") },
-    { make: "BMW", model: "X5", year: 2024, price: 62300, mileage: 8700, type: "suv", status: "reserved", listedAt: new Date("2026-02-01") },
-    { make: "Honda", model: "Civic", year: 2022, price: 21800, mileage: 45300, type: "sedan", status: "sold", listedAt: new Date("2025-11-10") },
-    { make: "Chevrolet", model: "Corvette", year: 2024, price: 67500, mileage: 3200, type: "coupe", status: "available", listedAt: new Date("2026-02-10") },
-    { make: "Jeep", model: "Wrangler", year: 2023, price: 38700, mileage: 22100, type: "suv", status: "available", listedAt: new Date("2025-12-05") },
-    { make: "Ford", model: "Mustang", year: 2024, price: 55200, mileage: 5800, type: "convertible", status: "reserved", listedAt: new Date("2026-02-14") },
-    { make: "Toyota", model: "RAV4", year: 2023, price: 33400, mileage: 19600, type: "suv", status: "available", listedAt: new Date("2025-12-20") },
-    { make: "Ram", model: "1500", year: 2024, price: 52100, mileage: 11400, type: "truck", status: "sold", listedAt: new Date("2026-01-08") },
-    { make: "Porsche", model: "911", year: 2023, price: 112000, mileage: 6100, type: "coupe", status: "available", listedAt: new Date("2026-02-05") },
-  ];
+  const [statusFilter, setStatusFilter] = useState<string>("all");
+  const [sort, setSort] = useState<SortOption>("price-asc");
 
   const types = ["all", "sedan", "suv", "truck", "coupe", "convertible"];
   const typeLabels: Record<string, string> = {
@@ -102,7 +84,34 @@ export default function Home() {
     convertible: t("Convertible"),
   };
 
-  const filtered = filter === "all" ? vehicles : vehicles.filter((v) => v.type === filter);
+  const statuses = ["all", "available", "reserved", "sold"];
+  const statusLabels: Record<string, string> = {
+    all: t("All Statuses"),
+    available: t("Available"),
+    reserved: t("Reserved"),
+    sold: t("Sold"),
+  };
+
+  const sortLabels: Record<SortOption, string> = {
+    "price-asc": t("Price: Low to High"),
+    "price-desc": t("Price: High to Low"),
+    "mileage-asc": t("Lowest Mileage"),
+    "year-desc": t("Newest First"),
+  };
+
+  let filtered = filter === "all" ? [...vehicles] : vehicles.filter((v) => v.type === filter);
+  if (statusFilter !== "all") {
+    filtered = filtered.filter((v) => v.status === statusFilter);
+  }
+
+  filtered.sort((a, b) => {
+    switch (sort) {
+      case "price-asc": return a.price - b.price;
+      case "price-desc": return b.price - a.price;
+      case "mileage-asc": return a.mileage - b.mileage;
+      case "year-desc": return b.year - a.year;
+    }
+  });
 
   return (
     <div className="min-h-screen bg-neutral-950 font-sans text-neutral-200">
@@ -152,7 +161,8 @@ export default function Home() {
           </p>
         </div>
 
-        <div className="flex flex-wrap gap-2 mb-8">
+        {/* Type filter */}
+        <div className="flex flex-wrap gap-2 mb-4">
           {types.map((type) => (
             <button
               key={type}
@@ -168,13 +178,41 @@ export default function Home() {
           ))}
         </div>
 
+        {/* Status filter + Sort */}
+        <div className="flex flex-wrap items-center gap-3 mb-8">
+          <div className="flex flex-wrap gap-2">
+            {statuses.map((s) => (
+              <button
+                key={s}
+                onClick={() => setStatusFilter(s)}
+                className={`text-xs px-2.5 py-1 rounded-full border transition-colors ${
+                  statusFilter === s
+                    ? "bg-neutral-800 text-neutral-200 border-neutral-600"
+                    : "bg-transparent text-neutral-500 border-neutral-800 hover:border-neutral-600 hover:text-neutral-300"
+                }`}
+              >
+                {statusLabels[s]}
+              </button>
+            ))}
+          </div>
+          <select
+            value={sort}
+            onChange={(e) => setSort(e.target.value as SortOption)}
+            className="ml-auto text-xs bg-neutral-900 text-neutral-400 border border-neutral-700 rounded-md px-2.5 py-1.5 focus:outline-none focus:border-neutral-500"
+          >
+            {(Object.keys(sortLabels) as SortOption[]).map((key) => (
+              <option key={key} value={key}>{sortLabels[key]}</option>
+            ))}
+          </select>
+        </div>
+
         <div>
-          {filtered.map((vehicle, i) => (
-            <VehicleCard key={i} vehicle={vehicle} />
+          {filtered.map((vehicle) => (
+            <VehicleCard key={vehicle.slug} vehicle={vehicle} />
           ))}
           {filtered.length === 0 && (
             <p className="text-neutral-500 text-sm py-8 text-center">
-              <T>No vehicles found for this type.</T>
+              <T>No vehicles found matching your filters.</T>
             </p>
           )}
         </div>
