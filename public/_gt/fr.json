@@ -1,0 +1,41 @@
+{
+  "045741aa62df51f8": "Tous",
+  "1aa30287003522de": "Concession automobile | Traduction générale",
+  "2d90ce781f47b665": [
+    "Parcourez notre sélection de ",
+    {
+      "i": 1,
+      "k": "_gt_n_1",
+      "v": "n"
+    },
+    " véhicules. Les prix, kilométrages et dates sont formatés selon votre paramètre régional grâce à gt-next."
+  ],
+  "39fc99abb9997c28": "Un inventaire multilingue de véhicules en concession, avec les prix, le kilométrage et les dates d’annonce formatés selon la langue et la région.",
+  "42a138eebc144656": [
+    "Listé le ",
+    {
+      "i": 1,
+      "k": "_gt_date_1",
+      "v": "d"
+    }
+  ],
+  "54a0f54918ce1810": "Coupé",
+  "584288d9323fc298": "Berline",
+  "64481e76ed30c67f": "Disponible",
+  "665375c93abc4c31": "SUV",
+  "6849ad9bebfe9303": "Vendu",
+  "80feabcab06049cb": "Cabriolet",
+  "901424250fb96ed0": "Aucun véhicule trouvé pour ce type.",
+  "9250c655dad5ac09": [
+    {
+      "i": 1,
+      "k": "_gt_n_1",
+      "v": "n"
+    },
+    " miles"
+  ],
+  "a1b8d5b2b09e1c48": "Réservé",
+  "ba9389007f97585d": "Inventaire des véhicules",
+  "c8080ad554b462af": "Camionnette",
+  "d5e80b1c5fd863b1": "Voici un exemple d'application construite avec General Translation pour illustrer l'internationalisation avec les composants Currency, Num, DateTime et Branche."
+}
