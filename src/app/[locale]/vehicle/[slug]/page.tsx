@@ -1,6 +1,6 @@
 "use client";
 
-import { T, Currency, Num, DateTime, Branch } from "gt-next";
+import { T, Currency, Num, DateTime, Branch, Var } from "gt-next";
 import { useGT } from "gt-next/client";
 import { LocaleSelector } from "gt-next";
 import { useParams } from "next/navigation";
@@ -15,26 +15,28 @@ function StatusBadge({ status }: { status: "available" | "reserved" | "sold" }) 
   };
 
   return (
-    <Branch
-      branch={status}
-      available={
-        <span className={`inline-block text-xs font-medium px-2 py-0.5 rounded-full border ${colors.available}`}>
-          <T>Available</T>
-        </span>
-      }
-      reserved={
-        <span className={`inline-block text-xs font-medium px-2 py-0.5 rounded-full border ${colors.reserved}`}>
-          <T>Reserved</T>
-        </span>
-      }
-      sold={
-        <span className={`inline-block text-xs font-medium px-2 py-0.5 rounded-full border ${colors.sold}`}>
-          <T>Sold</T>
-        </span>
-      }
-    >
-      <span />
-    </Branch>
+    <T>
+      <Branch
+        branch={status}
+        available={
+          <span className={`inline-block text-xs font-medium px-2 py-0.5 rounded-full border ${colors.available}`}>
+            Available
+          </span>
+        }
+        reserved={
+          <span className={`inline-block text-xs font-medium px-2 py-0.5 rounded-full border ${colors.reserved}`}>
+            Reserved
+          </span>
+        }
+        sold={
+          <span className={`inline-block text-xs font-medium px-2 py-0.5 rounded-full border ${colors.sold}`}>
+            Sold
+          </span>
+        }
+      >
+        <span />
+      </Branch>
+    </T>
   );
 }
 
@@ -50,7 +52,7 @@ function SpecRow({ label, value }: { label: React.ReactNode; value: React.ReactN
 export default function VehicleDetailPage() {
   const params = useParams();
   const slug = params.slug as string;
-  const t = useGT();
+  const gt = useGT();
   const vehicle = getVehicleBySlug(slug);
 
   if (!vehicle) {
@@ -82,86 +84,119 @@ export default function VehicleDetailPage() {
   }
 
   const featureLabels: Record<string, string> = {
-    "Adaptive Cruise Control": t("Adaptive Cruise Control"),
-    "Lane Departure Warning": t("Lane Departure Warning"),
+    "Adaptive Cruise Control": gt("Adaptive Cruise Control"),
+    "Lane Departure Warning": gt("Lane Departure Warning"),
     "Apple CarPlay": "Apple CarPlay",
     "Android Auto": "Android Auto",
-    "Blind Spot Monitor": t("Blind Spot Monitor"),
-    "Rear Cross-Traffic Alert": t("Rear Cross-Traffic Alert"),
-    "Pro Power Onboard": t("Pro Power Onboard"),
-    "360-Degree Camera": t("360-Degree Camera"),
-    "Trailer Backup Assist": t("Trailer Backup Assist"),
-    "Heated Seats": t("Heated Seats"),
+    "Blind Spot Monitor": gt("Blind Spot Monitor"),
+    "Rear Cross-Traffic Alert": gt("Rear Cross-Traffic Alert"),
+    "Pro Power Onboard": gt("Pro Power Onboard"),
+    "360-Degree Camera": gt("360-Degree Camera"),
+    "Trailer Backup Assist": gt("Trailer Backup Assist"),
+    "Heated Seats": gt("Heated Seats"),
     "B&O Sound System": "B&O Sound System",
-    "Tailgate Step": t("Tailgate Step"),
-    "Panoramic Sunroof": t("Panoramic Sunroof"),
-    "Gesture Control": t("Gesture Control"),
+    "Tailgate Step": gt("Tailgate Step"),
+    "Panoramic Sunroof": gt("Panoramic Sunroof"),
+    "Gesture Control": gt("Gesture Control"),
     "Harman Kardon Audio": "Harman Kardon Audio",
-    "Head-Up Display": t("Head-Up Display"),
-    "Parking Assistant Plus": t("Parking Assistant Plus"),
-    "Wireless Charging": t("Wireless Charging"),
+    "Head-Up Display": gt("Head-Up Display"),
+    "Parking Assistant Plus": gt("Parking Assistant Plus"),
+    "Wireless Charging": gt("Wireless Charging"),
     "Honda Sensing Suite": "Honda Sensing Suite",
-    "Multi-Angle Rearview Camera": t("Multi-Angle Rearview Camera"),
-    "Remote Start": t("Remote Start"),
-    "Performance Data Recorder": t("Performance Data Recorder"),
-    "Magnetic Ride Control": t("Magnetic Ride Control"),
+    "Multi-Angle Rearview Camera": gt("Multi-Angle Rearview Camera"),
+    "Remote Start": gt("Remote Start"),
+    "Performance Data Recorder": gt("Performance Data Recorder"),
+    "Magnetic Ride Control": gt("Magnetic Ride Control"),
     "Bose Premium Audio": "Bose Premium Audio",
-    "Front Lift System": t("Front Lift System"),
-    "Removable Top": t("Removable Top"),
-    "Trail Rated Badge": t("Trail Rated Badge"),
+    "Front Lift System": gt("Front Lift System"),
+    "Removable Top": gt("Removable Top"),
+    "Trail Rated Badge": gt("Trail Rated Badge"),
     "Dana 44 Axles": "Dana 44 Axles",
     "Rock-Trac Transfer Case": "Rock-Trac Transfer Case",
     "Uconnect Infotainment": "Uconnect Infotainment",
-    "Off-Road Camera": t("Off-Road Camera"),
+    "Off-Road Camera": gt("Off-Road Camera"),
     "MagneRide Suspension": "MagneRide Suspension",
     "SYNC 4 Infotainment": "SYNC 4 Infotainment",
     "B&O Audio": "B&O Audio",
-    "Digital Cluster": t("Digital Cluster"),
-    "Active Exhaust": t("Active Exhaust"),
-    "Performance Pack": t("Performance Pack"),
+    "Digital Cluster": gt("Digital Cluster"),
+    "Active Exhaust": gt("Active Exhaust"),
+    "Performance Pack": gt("Performance Pack"),
     "Toyota Safety Sense 2.5": "Toyota Safety Sense 2.5",
-    "Multi-Terrain Select": t("Multi-Terrain Select"),
+    "Multi-Terrain Select": gt("Multi-Terrain Select"),
     "JBL Audio": "JBL Audio",
-    "Panoramic Roof": t("Panoramic Roof"),
-    "Power Liftgate": t("Power Liftgate"),
-    "12-Inch Touchscreen": t("12-Inch Touchscreen"),
-    "Air Suspension": t("Air Suspension"),
-    "Multifunction Tailgate": t("Multifunction Tailgate"),
-    "Tow Package": t("Tow Package"),
+    "Panoramic Roof": gt("Panoramic Roof"),
+    "Power Liftgate": gt("Power Liftgate"),
+    "12-Inch Touchscreen": gt("12-Inch Touchscreen"),
+    "Air Suspension": gt("Air Suspension"),
+    "Multifunction Tailgate": gt("Multifunction Tailgate"),
+    "Tow Package": gt("Tow Package"),
     "Sport Chrono Package": "Sport Chrono Package",
     "PASM Suspension": "PASM Suspension",
     "Bose Surround Sound": "Bose Surround Sound",
-    "Sport Exhaust": t("Sport Exhaust"),
+    "Sport Exhaust": gt("Sport Exhaust"),
     "Porsche Active Suspension Management": "Porsche Active Suspension Management",
     "PCM Infotainment": "PCM Infotainment",
   };
 
   const colorLabels: Record<string, string> = {
-    "Midnight Black": t("Midnight Black"),
-    "Ash Gray": t("Ash Gray"),
-    "Oxford White": t("Oxford White"),
-    "Black": t("Black"),
-    "Alpine White": t("Alpine White"),
-    "Cognac Leather": t("Cognac Leather"),
-    "Rallye Red": t("Rallye Red"),
-    "Torch Red": t("Torch Red"),
-    "Jet Black": t("Jet Black"),
-    "Sarge Green": t("Sarge Green"),
-    "Vapor Blue": t("Vapor Blue"),
-    "Ebony Leather": t("Ebony Leather"),
-    "Blueprint": t("Blueprint"),
-    "Light Gray": t("Light Gray"),
-    "Patriot Blue": t("Patriot Blue"),
-    "Diesel Gray": t("Diesel Gray"),
-    "GT Silver Metallic": t("GT Silver Metallic"),
-    "Black Leather": t("Black Leather"),
+    "Midnight Black": gt("Midnight Black"),
+    "Ash Gray": gt("Ash Gray"),
+    "Oxford White": gt("Oxford White"),
+    "Black": gt("Black"),
+    "Alpine White": gt("Alpine White"),
+    "Cognac Leather": gt("Cognac Leather"),
+    "Rallye Red": gt("Rallye Red"),
+    "Torch Red": gt("Torch Red"),
+    "Jet Black": gt("Jet Black"),
+    "Sarge Green": gt("Sarge Green"),
+    "Vapor Blue": gt("Vapor Blue"),
+    "Ebony Leather": gt("Ebony Leather"),
+    "Blueprint": gt("Blueprint"),
+    "Light Gray": gt("Light Gray"),
+    "Patriot Blue": gt("Patriot Blue"),
+    "Diesel Gray": gt("Diesel Gray"),
+    "GT Silver Metallic": gt("GT Silver Metallic"),
+    "Black Leather": gt("Black Leather"),
   };
 
   const drivetrainLabels: Record<string, string> = {
-    "FWD": t("FWD"),
-    "RWD": t("RWD"),
-    "AWD": t("AWD"),
-    "4WD": t("4WD"),
+    "FWD": gt("FWD"),
+    "RWD": gt("RWD"),
+    "AWD": gt("AWD"),
+    "4WD": gt("4WD"),
+  };
+
+  const engineLabels: Record<string, string> = {
+    "2.5L 4-Cylinder": gt("2.5L 4-Cylinder"),
+    "3.5L V6 EcoBoost": gt("3.5L V6 EcoBoost"),
+    "3.0L Inline-6 Turbo": gt("3.0L Inline-6 Turbo"),
+    "2.0L 4-Cylinder": gt("2.0L 4-Cylinder"),
+    "6.2L V8": gt("6.2L V8"),
+    "3.6L V6": gt("3.6L V6"),
+    "5.0L V8": gt("5.0L V8"),
+    "5.7L HEMI V8": gt("5.7L HEMI V8"),
+    "3.0L Twin-Turbo Flat-6": gt("3.0L Twin-Turbo Flat-6"),
+  };
+
+  const transmissionLabels: Record<string, string> = {
+    "8-Speed Automatic": gt("8-Speed Automatic"),
+    "10-Speed Automatic": gt("10-Speed Automatic"),
+    "CVT": gt("CVT"),
+    "8-Speed Dual-Clutch": gt("8-Speed Dual-Clutch"),
+    "8-Speed PDK": gt("8-Speed PDK"),
+  };
+
+  const fuelEconomyLabels: Record<string, string> = {
+    "28/39 MPG": gt("28/39 MPG"),
+    "20/26 MPG": gt("20/26 MPG"),
+    "21/26 MPG": gt("21/26 MPG"),
+    "31/40 MPG": gt("31/40 MPG"),
+    "16/24 MPG": gt("16/24 MPG"),
+    "20/24 MPG": gt("20/24 MPG"),
+    "15/24 MPG": gt("15/24 MPG"),
+    "27/35 MPG": gt("27/35 MPG"),
+    "15/22 MPG": gt("15/22 MPG"),
+    "18/25 MPG": gt("18/25 MPG"),
   };
 
   return (
@@ -217,12 +252,12 @@ export default function VehicleDetailPage() {
             <T>Specifications</T>
           </h2>
           <div className="border border-neutral-800 rounded-lg px-4">
-            <SpecRow label={<T>Engine</T>} value={vehicle.engine} />
-            <SpecRow label={<T>Horsepower</T>} value={<><Num>{vehicle.horsepower}</Num> hp</>} />
-            <SpecRow label={<T>Torque</T>} value={<><Num>{vehicle.torque}</Num> lb-ft</>} />
-            <SpecRow label={<T>Transmission</T>} value={vehicle.transmission} />
+            <SpecRow label={<T>Engine</T>} value={engineLabels[vehicle.engine] || vehicle.engine} />
+            <SpecRow label={<T>Horsepower</T>} value={<T><Num>{vehicle.horsepower}</Num> hp</T>} />
+            <SpecRow label={<T>Torque</T>} value={<T><Num>{vehicle.torque}</Num> lb-ft</T>} />
+            <SpecRow label={<T>Transmission</T>} value={transmissionLabels[vehicle.transmission] || vehicle.transmission} />
             <SpecRow label={<T>Drivetrain</T>} value={drivetrainLabels[vehicle.drivetrain] || vehicle.drivetrain} />
-            <SpecRow label={<T>Fuel Economy</T>} value={vehicle.fuelEconomy} />
+            <SpecRow label={<T>Fuel Economy</T>} value={fuelEconomyLabels[vehicle.fuelEconomy] || vehicle.fuelEconomy} />
             <SpecRow label={<T>Exterior Color</T>} value={colorLabels[vehicle.exteriorColor] || vehicle.exteriorColor} />
             <SpecRow label={<T>Interior Color</T>} value={colorLabels[vehicle.interiorColor] || vehicle.interiorColor} />
           </div>

@@ -15,26 +15,28 @@ function StatusBadge({ status }: { status: "available" | "reserved" | "sold" }) 
   };
 
   return (
-    <Branch
-      branch={status}
-      available={
-        <span className={`inline-block text-xs font-medium px-2 py-0.5 rounded-full border ${colors.available}`}>
-          <T>Available</T>
-        </span>
-      }
-      reserved={
-        <span className={`inline-block text-xs font-medium px-2 py-0.5 rounded-full border ${colors.reserved}`}>
-          <T>Reserved</T>
-        </span>
-      }
-      sold={
-        <span className={`inline-block text-xs font-medium px-2 py-0.5 rounded-full border ${colors.sold}`}>
-          <T>Sold</T>
-        </span>
-      }
-    >
-      <span />
-    </Branch>
+    <T>
+      <Branch
+        branch={status}
+        available={
+          <span className={`inline-block text-xs font-medium px-2 py-0.5 rounded-full border ${colors.available}`}>
+            Available
+          </span>
+        }
+        reserved={
+          <span className={`inline-block text-xs font-medium px-2 py-0.5 rounded-full border ${colors.reserved}`}>
+            Reserved
+          </span>
+        }
+        sold={
+          <span className={`inline-block text-xs font-medium px-2 py-0.5 rounded-full border ${colors.sold}`}>
+            Sold
+          </span>
+        }
+      >
+        <span />
+      </Branch>
+    </T>
   );
 }
 
@@ -69,34 +71,34 @@ function VehicleCard({ vehicle }: { vehicle: Vehicle }) {
 type SortOption = "price-asc" | "price-desc" | "mileage-asc" | "year-desc";
 
 export default function Home() {
-  const t = useGT();
+  const gt = useGT();
   const [filter, setFilter] = useState<string>("all");
   const [statusFilter, setStatusFilter] = useState<string>("all");
   const [sort, setSort] = useState<SortOption>("price-asc");
 
   const types = ["all", "sedan", "suv", "truck", "coupe", "convertible"];
   const typeLabels: Record<string, string> = {
-    all: t("All"),
-    sedan: t("Sedan"),
-    suv: t("SUV"),
-    truck: t("Truck"),
-    coupe: t("Coupe"),
-    convertible: t("Convertible"),
+    all: gt("All"),
+    sedan: gt("Sedan"),
+    suv: gt("SUV"),
+    truck: gt("Truck"),
+    coupe: gt("Coupe"),
+    convertible: gt("Convertible"),
   };
 
   const statuses = ["all", "available", "reserved", "sold"];
   const statusLabels: Record<string, string> = {
-    all: t("All Statuses"),
-    available: t("Available"),
-    reserved: t("Reserved"),
-    sold: t("Sold"),
+    all: gt("All Statuses"),
+    available: gt("Available"),
+    reserved: gt("Reserved"),
+    sold: gt("Sold"),
   };
 
   const sortLabels: Record<SortOption, string> = {
-    "price-asc": t("Price: Low to High"),
-    "price-desc": t("Price: High to Low"),
-    "mileage-asc": t("Lowest Mileage"),
-    "year-desc": t("Newest First"),
+    "price-asc": gt("Price: Low to High"),
+    "price-desc": gt("Price: High to Low"),
+    "mileage-asc": gt("Lowest Mileage"),
+    "year-desc": gt("Newest First"),
   };
 
   let filtered = filter === "all" ? [...vehicles] : vehicles.filter((v) => v.type === filter);

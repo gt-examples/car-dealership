@@ -1,18 +1,29 @@
 {
   "00d749549818f737": "Combiné d’instruments numérique",
+  "03f035fad2d292bd": "20/24 MPG",
   "045741aa62df51f8": "Tous",
-  "07d2d608e9dd1ab5": "Vert sarge",
+  "07d2d608e9dd1ab5": "Vert Sarge",
+  "0dd6e45c8ce5989a": "6,2 L V8",
   "0e4bc32ecf94eec7": "Acompte",
   "0f84c0e9c71ae681": "Fonctionnalités",
   "0fe34e3e6edafde4": "4x4",
-  "1aa30287003522de": "Concession automobile | Traduction générique",
+  "1aa30287003522de": "Concession automobile | Traduction générale",
   "20a06093fba9d917": "Sièges chauffants",
   "23745f62c3f2c533": "Caméra tout-terrain",
   "242fd722584948df": "Aucun véhicule ne correspond à vos filtres.",
   "25eb3f583260066f": "Marchepied de hayon",
+  "26885aef27dc2303": [
+    {
+      "i": 1,
+      "k": "_gt_n_1",
+      "v": "n"
+    },
+    " pv"
+  ],
   "28328afd2fd9fe47": "Échappement sport",
   "2897364757bd6bbd": "Gris clair",
-  "2c1d1b1a9847c6b4": "Prix : du plus élevé au moins élevé",
+  "2bf1d985db42bf25": "3,6 L V6",
+  "2c1d1b1a9847c6b4": "Prix : du plus cher au moins cher",
   "2d90ce781f47b665": [
     "Parcourez notre sélection de ",
     {
@@ -20,14 +31,16 @@
       "k": "_gt_n_1",
       "v": "n"
     },
-    " véhicules. Les prix, kilométrages et dates sont formatés selon votre paramètre régional grâce à gt-next."
+    " véhicules. Les prix, kilométrages et dates sont formatés selon votre langue grâce à gt-next."
   ],
   "2da7c3092e4006f8": "Moteur",
   "316a060a1435716c": "mois",
-  "39fc99abb9997c28": "Un inventaire multilingue de voitures avec des prix, kilométrages et dates d’annonce formatés selon la locale.",
+  "39e887f39f31bb42": "Boîte à double embrayage à 8 rapports",
+  "39fc99abb9997c28": "Inventaire multilingue d’une concession automobile, avec des prix, kilométrages et dates d’annonce formatés selon la locale.",
   "3d078d828e85c131": "Transmission",
-  "40c49263a378f658": "FWD",
-  "417d00a9e0cf87a5": "Rouge flamme",
+  "3f2da68c5c51ec47": "Boîte automatique à 10 rapports",
+  "40c49263a378f658": "Traction avant (FWD)",
+  "417d00a9e0cf87a5": "Rouge vif",
   "41f2b83a0b1ded0c": "Surveillance des angles morts",
   "42a138eebc144656": [
     "Publié le ",
@@ -37,39 +50,81 @@
       "v": "d"
     }
   ],
-  "4b386bc2b1dc402f": "Pack Performance",
+  "42d333b752b6b164": "5,7 L HEMI V8",
+  "4436c0e08634b6a5": "21/26 MPG",
+  "4a85c4583550be6e": [
+    {
+      "i": 1,
+      "k": "_gt_n_1",
+      "v": "n"
+    },
+    " lb-ft"
+  ],
+  "4b386bc2b1dc402f": "Pack performance",
   "4c8588a3c96f213b": "Noir minuit",
   "4ca28e592f3b2931": "Toit amovible",
-  "4e474f5437079134": "Bleu patriotique",
+  "4e474f5437079134": "Bleu Patriot",
   "4e63aaf014e181c5": "Vendu",
-  "526198e7df8870be": "Sélection multi‑terrain",
+  "526198e7df8870be": "Sélecteur multiterrain",
   "540eb48cf9eddbae": "Noir",
   "54a0f54918ce1810": "Coupé",
   "54dc362b4309a925": "Régulateur de vitesse adaptatif",
   "584288d9323fc298": "Berline",
-  "599c4801725bef6b": "Argent GT métallisé",
+  "599c4801725bef6b": "Argent métallisé GT",
+  "59e093d122813338": "15/24 MPG",
   "5b2069caea152f2c": "Alerte de franchissement de ligne",
   "5cb32c756d86b60f": "Suspension pneumatique",
+  "60da3a771e16ebe8": "27/35 MPG",
   "62e996d4823eb87d": "Gris cendré",
-  "64481e76ed30c67f": "Disponible",
   "665375c93abc4c31": "SUV",
-  "66bc11a15649d9b4": "Blanc alpin",
-  "66dd499262a35444": "Pack de remorquage",
-  "6712a1959b61702d": "AWD",
+  "66bc11a15649d9b4": "Blanc Alpin",
+  "66dd499262a35444": "Pack remorquage",
+  "6712a1959b61702d": "Transmission intégrale (AWD)",
   "67b35f4fdf0210aa": "Tous les statuts",
-  "6849ad9bebfe9303": "Vendu",
+  "6a492c9a55a3b373": "28/39 MPG",
+  "732287acc4c4219b": "5,0 L V8",
   "7371e41e0852885f": "Disponible",
   "7488a5bddf46ff97": "Estimation de financement",
   "760436a713420426": "Affichage tête haute",
-  "7615391f41e783b6": "Alerte de trafic arrière transversal",
-  "77d170b9a3bb6f1e": "RWD",
+  "7615391f41e783b6": "Alerte de circulation transversale arrière",
+  "77d170b9a3bb6f1e": "Propulsion (RWD)",
+  "79a6ecd50009a6b8": "3,5 L V6 EcoBoost",
   "7cbb26675837d871": "Hayon multifonction",
   "80feabcab06049cb": "Cabriolet",
+  "824f87f39a022634": {
+    "c": {
+      "i": 2,
+      "t": "span"
+    },
+    "d": {
+      "b": {
+        "available": {
+          "c": "Disponible",
+          "i": 2,
+          "t": "span"
+        },
+        "reserved": {
+          "c": "Réservé",
+          "i": 2,
+          "t": "span"
+        },
+        "sold": {
+          "c": "Vendu",
+          "i": 2,
+          "t": "span"
+        }
+      },
+      "t": "b"
+    },
+    "i": 1,
+    "t": "Branch"
+  },
   "85fb6b7b284ce91c": "Échappement actif",
   "87bc55c3fd0f10e9": "Réservé",
   "883cbdca6106e1a0": "Durée du prêt",
   "8a8d98b01f2d70b8": "Caméra de recul à angles multiples",
   "8dd2a0f1fcc0eb45": "Toit ouvrant panoramique",
+  "8f7dfdc38ee24333": "3,0 L 6 cylindres à plat biturbo",
   "9250c655dad5ac09": [
     {
       "i": 1,
@@ -78,30 +133,36 @@
     },
     " miles"
   ],
-  "936643adbc3c10b3": "Chargeur sans fil",
+  "936643adbc3c10b3": "Recharge sans fil",
+  "94d87f9bf54cb84d": "20/26 MPG",
   "9758cba4542ae09f": "Cuir noir",
   "99688e2b3caf1e7b": "Enregistreur de données de performances",
   "99c6275586870958": "Kilométrage le plus faible",
   "9a4a2042969d42b1": "Spécifications",
   "9a74584bd18e0722": "Assistant de stationnement Plus",
   "9b55e839d0931baf": "Économie de carburant",
-  "a1b8d5b2b09e1c48": "Réservé",
+  "9c2c7550010b2910": "2,0 L 4 cylindres",
+  "9e914f3e816e4594": "15/22 MPG",
   "a5f6340d827be04a": "Torque",
+  "ad09840c2a14fd17": "31/40 MPG",
   "ae0a3897ec05f20e": "Cuir ébène",
-  "b02c4aa716524e41": "Prix : du moins élevé au plus élevé",
+  "b02c4aa716524e41": "Prix : du moins cher au plus cher",
   "b0da1b5cfbfedb92": "Retour à l'inventaire",
   "b3ccd053a64e869d": "Cuir cognac",
   "b5209f496c33704d": "Démarrage à distance",
-  "b86794269e2b4e0d": "Suspension à contrôle magnétique",
+  "b59abbeff5d991ac": "CVT",
+  "b86794269e2b4e0d": "Contrôle magnétique de la suspension",
   "ba9389007f97585d": "Inventaire des véhicules",
   "bb5bb960cbb2ae14": "Noir de jais",
+  "bc91215e1b914c2a": "3,0 L 6 cylindres en ligne turbo",
   "bef65bd77d2415e3": "Toit panoramique",
-  "c3251b05060bea63": "Plus récent en premier",
+  "c3251b05060bea63": "Les plus récents en premier",
+  "c35ca53576377b25": "18/25 MPG",
   "c8080ad554b462af": "Camion",
   "c97234273119096f": "Couleur intérieure",
   "cf0e11ec429eb249": "Véhicule introuvable.",
   "d27043e4c63b286c": "Groupe motopropulseur",
-  "d31c519c784c6732": "Assistant de recul avec remorque",
+  "d31c519c784c6732": "Assistance au recul avec remorque",
   "d5e80b1c5fd863b1": "Il s'agit d'un exemple d'application développée avec General Translation pour illustrer l'internationalisation avec les composants Currency, Num, DateTime et Branche.",
   "db96f7e231d5884a": "Blanc Oxford",
   "dd152e0526802ca8": [
@@ -113,17 +174,21 @@
     " mois"
   ],
   "defab86518d8a48d": "Paiement mensuel estimé",
+  "e12cb96654f12283": "Boîte automatique à 8 rapports",
   "e4db6adaac365284": "Rouge rallye",
   "e72e22b52925adf1": "Système de levage avant",
   "e7aedac53699c19b": "Pro Power Onboard",
   "ed410f109e40323f": "Couleur extérieure",
-  "ee0945bb3d8c5891": "Gris diesel",
-  "eee5d25f62bb3283": "Hayon à ouverture électrique",
-  "ef501326731fd956": "Écran tactile 12 pouces",
+  "ede283141c4b9b4e": "2,5 L 4 cylindres",
+  "ee0945bb3d8c5891": "Gris Diesel",
+  "eee5d25f62bb3283": "Hayon électrique",
+  "ef501326731fd956": "Écran tactile de 12 pouces",
   "f24cc7f9b63683ab": "Bleu vapeur",
-  "f2d6d38a879ca554": "Insigne « Trail Rated »",
-  "f6df1466499effa7": "Contrôle gestuel",
-  "f8de023eb443507a": "Bleu technique",
+  "f2d6d38a879ca554": "Badge « Trail Rated »",
+  "f342d1b198049b7c": "PDK à 8 rapports",
+  "f6df1466499effa7": "Commandes gestuelles",
+  "f733fdc3823710ca": "16/24 MPG",
+  "f8de023eb443507a": "Blueprint",
   "fbef387c7644cd92": "Puissance",
   "ff610cb549c41488": "Caméra à 360°"
 }
